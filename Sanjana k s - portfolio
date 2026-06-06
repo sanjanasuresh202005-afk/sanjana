@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjana K S | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    color:#333;
+    line-height:1.6;
+}
+
+header{
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:1.2rem;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 0;
+}
+
+section{
+    background:white;
+    margin-bottom:25px;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+h2{
+    color:#1e3c72;
+    margin-bottom:15px;
+    border-left:5px solid #2a5298;
+    padding-left:10px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    background:#2a5298;
+    color:white;
+    padding:10px 15px;
+    border-radius:25px;
+    font-size:14px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+.contact a{
+    text-decoration:none;
+    color:#2a5298;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#1e3c72;
+    color:white;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#2a5298;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1e3c72;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SANJANA K S</h1>
+    <p>BCA Student | Data Analytics Enthusiast | Programmer</p>
+    <a href="#contact" class="btn">Contact Me</a>
+</header>
+
+<div class="container">
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a third-year Bachelor of Computer Applications (BCA) student with a strong passion
+            for Data Analytics, Software Development, and Information Technology.
+            I possess practical knowledge in Python, PHP, Java, C, SQL, Microsoft Excel,
+            and Networking. I enjoy solving problems through technology and continuously
+            improving my technical and analytical skills.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">PHP</span>
+            <span class="skill">Java</span>
+            <span class="skill">C Programming</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Microsoft Excel</span>
+            <span class="skill">Networking</span>
+            <span class="skill">Data Analytics</span>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p>
+            <strong>Bachelor of Computer Applications (BCA)</strong><br>
+            Currently Pursuing - Third Year
+        </p>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications & Courses</h2>
+        <ul>
+            <li>IIT Bombay Spoken Tutorial Certification - eSim</li>
+            <li>IIT Bombay Spoken Tutorial Certification - GIMP</li>
+            <li>Additional Technical Courses from IIT Bombay</li>
+            <li>Data Analytics Add-on Course - Srishti Innovative</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Internship Experience</h2>
+        <p>
+            <strong>Intern - IIT Palakkad</strong>
+        </p>
+        <p>
+            Currently gaining practical exposure to real-world technical projects,
+            research-oriented work, and professional development practices.
+        </p>
+    </section>
+
+    <section id="career">
+        <h2>Career Objective</h2>
+        <p>
+            Seeking opportunities in Data Analytics, Software Development,
+            Programming, and related technology domains where I can apply my
+            technical skills, contribute effectively, and continue learning in
+            a professional environment.
+        </p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Information</h2>
+
+        <p><strong>Name:</strong> Sanjana K S</p>
+        <p><strong>Phone:</strong> +91 7907890248</p>
+
+        <p>
+            <strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/sanjana-ks-techprofile"
+               target="_blank">
+               linkedin.com/in/sanjana-ks-techprofile
+            </a>
+        </p>
+
+        <p>
+            Open to internship and job opportunities in Data Analytics,
+            Software Development, Programming, and IT-related fields.
+        </p>
+    </section>
+
+</div>
+
+<footer>
+    <p>© 2026 Sanjana K S | Portfolio Website</p>
+</footer>
+
+</body>
+</html>
