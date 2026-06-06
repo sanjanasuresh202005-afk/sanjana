@@ -1,0 +1,542 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjana K S — Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+
+        /* Animated gradient background */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0f172a 50%, #1a1a2e 75%, #0f172a 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatUp linear infinite;
+            opacity: 0;
+        }
+        @keyframes floatUp {
+            0%   { transform: translateY(0) scale(0); opacity: 0; }
+            10%  { opacity: 0.6; }
+            90%  { opacity: 0.1; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+
+        /* Card glow */
+        .glow-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .glow-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa, #6366f1);
+            background-size: 300% 300%;
+            animation: borderGlow 4s ease infinite;
+            z-index: -1;
+        }
+        @keyframes borderGlow {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Skill badge hover */
+        .skill-badge {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .skill-badge:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typing cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: #818cf8;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Pulse ring on avatar */
+        .pulse-ring {
+            animation: pulseRing 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulseRing {
+            0%   { transform: scale(0.95); opacity: 0.7; }
+            50%  { transform: scale(1.05); opacity: 0.3; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+
+        /* Timeline dot pulse */
+        .timeline-dot {
+            position: relative;
+        }
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid #818cf8;
+            animation: pulseRing 2s ease infinite;
+        }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+    </style>
+</head>
+<body class="bg-slate-950 text-white overflow-x-hidden">
+
+    <!-- Floating Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-950/60 border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                S K S
+            </a>
+            <div class="flex gap-6 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#journey" class="hover:text-indigo-400 transition-colors">Journey</a>
+                <a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative px-6">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <!-- Avatar -->
+            <div class="relative inline-block mb-8">
+                <div class="w-40 h-40 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 p-1 mx-auto">
+                    <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden">
+                        <span class="text-5xl font-bold bg-gradient-to-br from-indigo-400 to-purple-400 bg-clip-text text-transparent font-playfair">SK</span>
+                    </div>
+                </div>
+                <div class="absolute inset-0 rounded-full border-2 border-indigo-400/30 pulse-ring"></div>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 font-playfair">
+                <span class="bg-gradient-to-r from-white via-indigo-200 to-purple-300 bg-clip-text text-transparent">
+                    Sanjana K S
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 mb-2 tracking-widest uppercase font-light">Profile</p>
+            <div class="h-1 w-24 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-8"></div>
+
+            <!-- Typing tagline -->
+            <p id="typed-text" class="text-xl md:text-2xl text-indigo-300 font-light typing-cursor mb-10"></p>
+
+            <!-- CTA buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-semibold hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5">
+                    Get In Touch
+                </a>
+                <a href="#about" class="px-8 py-3 border border-indigo-500/30 rounded-full font-semibold text-indigo-300 hover:bg-indigo-500/10 transition-all hover:-translate-y-0.5">
+                    Learn More
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-xs">
+            <span>Scroll</span>
+            <div class="w-5 h-8 border-2 border-slate-500/50 rounded-full flex items-start justify-center p-1">
+                <div class="w-1 h-2 bg-indigo-400 rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold font-playfair text-center mb-4">
+                    <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">About Me</span>
+                </h2>
+                <div class="h-1 w-16 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-12"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <!-- Left: Info Card -->
+                <div class="fade-in glow-card rounded-2xl">
+                    <div class="bg-slate-900 rounded-2xl p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span class="text-slate-500 text-sm ml-2 font-mono">sanjana_profile.py</span>
+                        </div>
+                        <pre class="text-sm md:text-base leading-relaxed font-mono text-slate-300">
+<span class="text-purple-400">class</span> <span class="text-indigo-300">Sanjana</span>:
+  <span class="text-purple-400">def</span> <span class="text-yellow-300">__init__</span>(<span class="text-orange-300">self</span>):
+    self.<span class="text-blue-300">name</span> = <span class="text-green-400">"Sanjana K S"</span>
+    self.<span class="text-blue-300">education</span> = <span class="text-green-400">"BCA 3rd Year"</span>
+    self.<span class="text-blue-300">role</span> = <span class="text-green-400">"Aspiring Data Analyst"</span>
+    self.<span class="text-blue-300">intern_at</span> = <span class="text-green-400">"IIT Palakkad"</span>
+    self.<span class="text-blue-300">status</span> = <span class="text-green-400">"Open to Work"</span> <span class="text-slate-500">🚀</span></pre>
+                    </div>
+                </div>
+
+                <!-- Right: Text -->
+                <div class="fade-in space-y-5">
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        <span class="text-indigo-400 font-semibold">A BCA 3rd year student</span> with a strong foundation in programming and data technologies. Proficient in
+                        <span class="text-purple-400 font-medium">Python, PHP, Java, Excel</span> and <span class="text-purple-400 font-medium">SQL</span> — building real-world solutions with code.
+                    </p>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        Completed prestigious <span class="text-indigo-400 font-semibold">online courses from IIT Bombay</span> and currently gaining hands-on industry experience as an <span class="text-indigo-400 font-semibold">intern at IIT Palakkad</span>.
+                    </p>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        An active presence on <span class="text-blue-400 font-semibold">LinkedIn</span> with a decent and growing follower base — sharing insights, connecting with professionals, and building a strong network.
+                    </p>
+                    <div class="pt-2">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm font-medium">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            Actively looking for Data Analyst & Programmer roles
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 bg-slate-900/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-playfair mb-4">
+                    <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Skills & Technologies</span>
+                </h2>
+                <div class="h-1 w-16 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 fade-in">
+                <!-- Python -->
+                <div class="skill-badge group bg-slate-800/80 backdrop-blur border border-slate-700/50 rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="text-4xl mb-3">🐍</div>
+                    <h3 class="font-bold text-white text-lg">Python</h3>
+                    <div class="mt-3 w-full bg-slate-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-1.5 rounded-full transition-all duration-1000 skill-bar" data-width="90%"></div>
+                    </div>
+                </div>
+
+                <!-- PHP -->
+                <div class="skill-badge group bg-slate-800/80 backdrop-blur border border-slate-700/50 rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="text-4xl mb-3">🐘</div>
+                    <h3 class="font-bold text-white text-lg">PHP</h3>
+                    <div class="mt-3 w-full bg-slate-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-1.5 rounded-full transition-all duration-1000 skill-bar" data-width="80%"></div>
+                    </div>
+                </div>
+
+                <!-- Java -->
+                <div class="skill-badge group bg-slate-800/80 backdrop-blur border border-slate-700/50 rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="text-4xl mb-3">☕</div>
+                    <h3 class="font-bold text-white text-lg">Java</h3>
+                    <div class="mt-3 w-full bg-slate-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-1.5 rounded-full transition-all duration-1000 skill-bar" data-width="85%"></div>
+                    </div>
+                </div>
+
+                <!-- Excel -->
+                <div class="skill-badge group bg-slate-800/80 backdrop-blur border border-slate-700/50 rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="text-4xl mb-3">📊</div>
+                    <h3 class="font-bold text-white text-lg">Excel</h3>
+                    <div class="mt-3 w-full bg-slate-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-1.5 rounded-full transition-all duration-1000 skill-bar" data-width="88%"></div>
+                    </div>
+                </div>
+
+                <!-- SQL -->
+                <div class="skill-badge group bg-slate-800/80 backdrop-blur border border-slate-700/50 rounded-2xl p-6 text-center cursor-pointer">
+                    <div class="text-4xl mb-3">🗄️</div>
+                    <h3 class="font-bold text-white text-lg">SQL</h3>
+                    <div class="mt-3 w-full bg-slate-700 rounded-full h-1.5">
+                        <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-1.5 rounded-full transition-all duration-1000 skill-bar" data-width="85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey / Timeline Section -->
+    <section id="journey" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-playfair mb-4">
+                    <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">My Journey</span>
+                </h2>
+                <div class="h-1 w-16 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Vertical line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-indigo-500 md:-translate-x-0.5"></div>
+
+                <!-- Item 1 -->
+                <div class="fade-in relative flex flex-col md:flex-row items-start mb-12">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <div class="bg-slate-800/60 backdrop-blur border border-slate-700/50 rounded-2xl p-6">
+                            <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Education</span>
+                            <h3 class="text-xl font-bold text-white mt-2">BCA — 3rd Year</h3>
+                            <p class="text-slate-400 mt-2">Currently pursuing Bachelor of Computer Applications with a focus on programming, databases, and data analysis.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 top-6 w-4 h-4 bg-indigo-500 rounded-full border-4 border-slate-950 md:-translate-x-2 timeline-dot z-10"></div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="fade-in relative flex flex-col md:flex-row items-start mb-12">
+                    <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12">
+                        <div class="bg-slate-800/60 backdrop-blur border border-slate-700/50 rounded-2xl p-6">
+                            <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Certification</span>
+                            <h3 class="text-xl font-bold text-white mt-2">Online Courses — IIT Bombay</h3>
+                            <p class="text-slate-400 mt-2">Completed specialized online courses from the prestigious Indian Institute of Technology, Bombay — strengthening core technical knowledge.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 top-6 w-4 h-4 bg-purple-500 rounded-full border-4 border-slate-950 md:-translate-x-2 timeline-dot z-10"></div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="fade-in relative flex flex-col md:flex-row items-start mb-12">
+                    <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                        <div class="bg-slate-800/60 backdrop-blur border border-slate-700/50 rounded-2xl p-6">
+                            <span class="text-xs font-bold text-green-400 uppercase tracking-widest">Current</span>
+                            <h3 class="text-xl font-bold text-white mt-2">Intern — IIT Palakkad</h3>
+                            <p class="text-slate-400 mt-2">Currently interning at Indian Institute of Technology, Palakkad — gaining invaluable industry exposure and hands-on experience in cutting-edge projects.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 top-6 w-4 h-4 bg-green-500 rounded-full border-4 border-slate-950 md:-translate-x-2 timeline-dot z-10"></div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="fade-in relative flex flex-col md:flex-row items-start">
+                    <div class="md:w-1/2"></div>
+                    <div class="md:w-1/2 md:pl-12 pl-12">
+                        <div class="bg-slate-800/60 backdrop-blur border border-slate-700/50 rounded-2xl p-6">
+                            <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Networking</span>
+                            <h3 class="text-xl font-bold text-white mt-2">LinkedIn Presence</h3>
+                            <p class="text-slate-400 mt-2">Building a growing community on LinkedIn — sharing tech insights, connecting with industry professionals, and engaging with the developer community.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-2.5 md:left-1/2 top-6 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-950 md:-translate-x-2 timeline-dot z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Looking For Section -->
+    <section class="py-24 px-6 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold font-playfair mb-4">
+                <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Open to Opportunities</span>
+            </h2>
+            <div class="h-1 w-16 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-10"></div>
+
+            <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <!-- Data Analyst -->
+                <div class="group bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border border-indigo-500/20 rounded-2xl p-8 hover:border-indigo-500/50 transition-all hover:-translate-y-1">
+                    <div class="text-5xl mb-4">📈</div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Data Analyst</h3>
+                    <p class="text-slate-400">Passionate about uncovering insights from data using Python, SQL, and Excel to drive informed decisions.</p>
+                </div>
+                <!-- Programmer -->
+                <div class="group bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/20 rounded-2xl p-8 hover:border-purple-500/50 transition-all hover:-translate-y-1">
+                    <div class="text-5xl mb-4">💻</div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Programmer</h3>
+                    <p class="text-slate-400">Skilled in building applications with Python, PHP, and Java — ready to contribute clean, efficient code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-playfair mb-4">
+                    <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Contact Me</span>
+                </h2>
+                <div class="h-1 w-16 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mb-6"></div>
+                <p class="text-slate-400 text-lg">Let's connect and create something great together!</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto fade-in">
+                <!-- Phone Card -->
+                <a href="tel:7907890248" class="group glow-card rounded-2xl">
+                    <div class="bg-slate-900 rounded-2xl p-8 text-center hover:bg-slate-800/80 transition-colors">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            📞
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">Phone</h3>
+                        <p class="text-indigo-300 text-lg font-mono">7907890248</p>
+                    </div>
+                </a>
+
+                <!-- LinkedIn Card -->
+                <a href="https://www.linkedin.com/in/sanjana-code-ks" target="_blank" class="group glow-card rounded-2xl">
+                    <div class="bg-slate-900 rounded-2xl p-8 text-center hover:bg-slate-800/80 transition-colors">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-1">LinkedIn</h3>
+                        <p class="text-blue-300 text-lg font-mono">sanjana-code-ks</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/5 text-center">
+        <p class="text-slate-500 text-sm">
+            © 2025 <span class="text-indigo-400">Sanjana K S</span>. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ===== Typing Effect =====
+        const phrases = [
+            "BCA Student  ·  Data Enthusiast",
+            "Python  ·  PHP  ·  Java  ·  SQL",
+            "IIT Palakkad Intern",
+            "Aspiring Data Analyst & Programmer"
+        ];
+        let phraseIndex = 0, charIndex = 0, isDeleting = false;
+        const typedEl = document.getElementById('typed-text');
+
+        function typeEffect() {
+            const current = phrases[phraseIndex];
+            if (isDeleting) {
+                typedEl.textContent = current.substring(0, charIndex--);
+            } else {
+                typedEl.textContent = current.substring(0, charIndex++);
+            }
+
+            let speed = isDeleting ? 30 : 60;
+
+            if (!isDeleting && charIndex > current.length) {
+                speed = 2000; // pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex < 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                speed = 400;
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+        typeEffect();
+
+        // ===== Floating Particles =====
+        const particlesContainer = document.getElementById('particles');
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 4 + 2;
+            const hue = Math.random() > 0.5 ? '238' : '270'; // indigo or purple
+            particle.style.cssText = `
+                width: ${size}px;
+                height: ${size}px;
+                left: ${Math.random() * 100}%;
+                bottom: -10px;
+                background: hsla(${hue}, 80%, 70%, 0.7);
+                animation-duration: ${Math.random() * 8 + 6}s;
+                animation-delay: ${Math.random() * 2}s;
+            `;
+            particlesContainer.appendChild(particle);
+            setTimeout(() => particle.remove(), 16000);
+        }
+        setInterval(createParticle, 300);
+
+        // ===== Scroll Fade-In =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ===== Skill Bars Animation =====
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.skill-bar').forEach(bar => {
+                        bar.style.width = bar.dataset.width;
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('#skills').forEach(el => skillObserver.observe(el));
+
+        // ===== Smooth Nav Active State =====
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 100;
+                if (scrollY >= top) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('text-indigo-400');
+                link.classList.add('text-slate-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-indigo-400');
+                    link.classList.remove('text-slate-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
